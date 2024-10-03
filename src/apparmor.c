@@ -36,7 +36,7 @@ void bail_if(int err, const char * what){
   }
 }
 
-void rapparmor_warning(){
+void rapparmor_warning(void){
   switch(errno){
     case ENOSYS: 
       Rf_warning("AppArmor extensions to the system are not available.");
@@ -54,7 +54,7 @@ void rapparmor_warning(){
       Rf_warning("Did not have sufficient permissions to determine if AppArmor is enabled.");
       break;
     default:
-      Rf_warning(strerror(errno));
+      Rf_warning("%s", strerror(errno));
   };
 }
 
@@ -87,7 +87,7 @@ SEXP R_aa_change_profile(SEXP profile) {
 #endif //NO_APPARMOR
 }
 
-SEXP R_aa_find_mountpoint() {
+SEXP R_aa_find_mountpoint(void) {
 #ifdef NO_APPARMOR
   Rf_error("AppArmor not supported on this system");
 #else
@@ -97,7 +97,7 @@ SEXP R_aa_find_mountpoint() {
 #endif //NO_APPARMOR
 }
 
-SEXP R_aa_getcon(){
+SEXP R_aa_getcon(void){
 #ifdef NO_APPARMOR
   Rf_error("AppArmor not supported on this system");
 #else
@@ -114,7 +114,7 @@ SEXP R_aa_getcon(){
 #endif //NO_APPARMOR
 }
 
-SEXP R_aa_is_enabled(){
+SEXP R_aa_is_enabled(void){
 #ifdef NO_APPARMOR
   return ScalarLogical(FALSE);
 #else
@@ -125,7 +125,7 @@ SEXP R_aa_is_enabled(){
 #endif //NO_APPARMOR
 }
 
-SEXP R_aa_is_compiled(){
+SEXP R_aa_is_compiled(void){
 #ifdef NO_APPARMOR
   return ScalarLogical(FALSE);
 #else

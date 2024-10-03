@@ -1,3 +1,16 @@
+3.2.4
+ - Fix a printf warning for CRAN
+
+3.2.3
+ - Fix strict-prototypes warnings
+ 
+3.2.2
+ - Make eval.secure an alias of unix::eval_safe (it was a wrapper before)
+ - Manual makes it even more clear that eval.secure is now unix::eval_safe
+ 
+3.2.1
+ - Fix for CRAN: do not use CPP in configure
+
 3.2
  - Move unix from Imports to Depends because many old examples from the paper
    assume that the rlimit_ functions are attached when using RAppArmor.
