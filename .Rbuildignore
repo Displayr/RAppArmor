@@ -15,3 +15,5 @@ Tutorials.txt
 ^vignettes/.*.tex$
 ^.Rhistory$
 ^debian$
+^AGENTS\.md$
+^CLAUDE\.md$
